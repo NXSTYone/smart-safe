@@ -165,7 +165,7 @@ router.get('/structure', auth, async (req, res) => {
 
     res.json({
       success: true,
-      referral_link: `https://t.me/SmartSafeBot/app?startapp=${req.user.referral_code}`,
+      referral_link: `https://t.me/smart_safe_crypto_bot?startapp=${encodeURIComponent(req.user.referral_code)}`,
       referral_code: req.user.referral_code,
       structure: levels,
       stats: {
