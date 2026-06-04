@@ -1520,7 +1520,7 @@ const authResult = await telegramAuth({
   <p className="neon-label-purple text-[12px]">
     ВАШ ПРИГЛАСИТЕЛЬ
   </p>
-  <p className="mt-2 text-[15px] font-black text-white">
+  <p className="mt-2 text-[15px] font-black text-[#B66CFF]">
     {referralDashboard?.inviter
       ? referralDashboard.inviter.display_name
       : "Вы зарегистрированы без пригласителя"}
