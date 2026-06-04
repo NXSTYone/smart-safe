@@ -93,9 +93,9 @@ export default function App() {
   ];
 
   const banners = [
-    "/banners/banner-1.png",
-    "/banners/banner-2.png",
-    "/banners/banner-3.png",
+    "/banners/banner-1.jpg",
+    "/banners/banner-2.jpg",
+    "/banners/banner-3.jpg",
   ];
 
   const safeVisuals = {
