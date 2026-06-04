@@ -212,7 +212,25 @@ router.get('/dashboard', auth, async (req, res) => {
     const userId = req.user.id;
 
     const levels = await getLevels(userId);
-
+    let inviter = null;
+if (req.user.invited_by) {
+  const inviterResult = await pool.query(
+    `SELECT telegram_id, telegram_username, first_name, last_name, referral_code
+     FROM users
+     WHERE id = $1`,
+    [req.user.invited_by]
+  );
+  const inviterUser = inviterResult.rows[0];
+  if (inviterUser) {
+    inviter = {
+      telegram_username: inviterUser.telegram_username,
+      first_name: inviterUser.first_name,
+      last_name: inviterUser.last_name,
+      referral_code: inviterUser.referral_code,
+      display_name: getUserDisplayName(inviterUser),
+    };
+  }
+}
     const allUsers = [
       ...levels.level_1,
       ...levels.level_2,
@@ -298,6 +316,7 @@ router.get('/dashboard', auth, async (req, res) => {
       success: true,
       referral_link: `https://t.me/smart_safe_crypto_bot/app?startapp=${req.user.referral_code}`,
       referral_code: req.user.referral_code,
+      inviter,
 
       stats: {
         total_partners: allUsers.length,
