@@ -1,6 +1,7 @@
 const express = require('express');
 const pool = require('../config/db');
 
+const telegramRoutes = require('./telegram.routes');
 const secretRoutes = require('./secret.routes');
 const authRoutes = require('./auth.routes');
 const userRoutes = require('./user.routes');
@@ -41,6 +42,7 @@ router.get('/plans', async (req, res) => {
   }
 });
 
+router.use('/telegram', telegramRoutes);
 router.use('/auth', authRoutes);
 router.use('/user', userRoutes);
 router.use('/safe', safeRoutes);

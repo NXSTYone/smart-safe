@@ -184,7 +184,7 @@ if (req.user.invited_by) {
 
     res.json({
       success: true,
-      referral_link: `https://t.me/smart_safe_crypto_bot/app?startapp=${req.user.referral_code}`,
+      referral_link: `https://t.me/smart_safe_crypto_bot?start=${req.user.referral_code}`,
       referral_code: req.user.referral_code,
       inviter,
       structure: levels,
@@ -314,7 +314,7 @@ if (req.user.invited_by) {
 
     res.json({
       success: true,
-      referral_link: `https://t.me/smart_safe_crypto_bot/app?startapp=${req.user.referral_code}`,
+      referral_link: `https://t.me/smart_safe_crypto_bot?start=${req.user.referral_code}`,
       referral_code: req.user.referral_code,
       inviter,
 
