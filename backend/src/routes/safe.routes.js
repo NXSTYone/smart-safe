@@ -6,7 +6,7 @@ const router = express.Router();
 
 async function payReferralRewards(client, userId, depositId, depositAmount) {
   const levels = [
-    { level: 1, percent: 10 },
+    { level: 1, percent: 7 },
     { level: 2, percent: 5 },
     { level: 3, percent: 3 },
   ];
