@@ -1517,7 +1517,7 @@ const authResult = await telegramAuth({
                   {copied ? "ССЫЛКА СКОПИРОВАНА" : "КОПИРОВАТЬ ССЫЛКУ"}
                 </button>
                 <div className="mt-5 rounded-[22px] border border-[#7C3AED]/35 bg-[#7C3AED]/10 p-4">
-  <p className="neon-label-purple text-[13px] font-black">
+  <p className="text-[13px] font-black text-[#B66CFF]">
     ВАШ ПРИГЛАСИТЕЛЬ
   </p>
   <p className="mt-2 text-[15px] font-black text-[#B66CFF]">
