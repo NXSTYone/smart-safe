@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Exo+2:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #030712;
+  color: #00e5ff;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.neon-title {
+  font-family: 'Orbitron', sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1.35px #00e5ff;
+  text-shadow:
+    0 0 8px rgba(0, 229, 255, .75),
+    0 0 18px rgba(57, 255, 20, .25),
+    0 0 32px rgba(109, 40, 255, .3);
+}
+
+.neon-title-green {
+  font-family: 'Orbitron', sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1.35px #39ff14;
+  text-shadow:
+    0 0 10px rgba(57, 255, 20, .85),
+    0 0 22px rgba(0, 229, 255, .3);
+}
+
+.neon-title-purple {
+  font-family: 'Orbitron', sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1.35px #7c3aed;
+  text-shadow:
+    0 0 10px rgba(124, 58, 237, .85),
+    0 0 22px rgba(0, 229, 255, .25);
+}
+
+.neon-text {
+  color: #8eeeff;
+  text-shadow: 0 0 10px rgba(0, 229, 255, .28);
+}
+
+.neon-label {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 3px;
+  color: #39ff14;
+  text-shadow: 0 0 12px rgba(57, 255, 20, .65);
+}
+.neon-subtitle {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  color: #7dd3fc;
+  text-shadow:
+    0 0 10px rgba(0, 229, 255, .45),
+    0 0 18px rgba(57, 255, 20, .18);
+}
+
+.neon-subtitle-small {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 600;
+  color: #7dd3fc;
+  text-shadow: 0 0 10px rgba(0, 229, 255, .35);
+}
+
+.neon-button-text {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 10px rgba(57, 255, 20, .85),
+    0 0 20px rgba(57, 255, 20, .35);
+}
+
+.neon-button-purple {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #a78bfa;
+  text-shadow:
+    0 0 10px rgba(124, 58, 237, .85),
+    0 0 20px rgba(0, 229, 255, .25);
+}
+
+.neon-label-cyan {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #00e5ff;
+  text-shadow: 0 0 12px rgba(0, 229, 255, .65);
+}
