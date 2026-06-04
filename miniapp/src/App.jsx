@@ -267,7 +267,7 @@ export default function App() {
             color,
           };
         })
-      : demoOperations;
+      : [];
 
 
   const partnerLink =
@@ -745,7 +745,7 @@ const authResult = await telegramAuth({
           <div className="flex items-start justify-between">
             <button
   onClick={() => {
-    window.Telegram?.WebApp?.openTelegramLink("https://t.me/YOUR_SUPPORT");
+    window.Telegram?.WebApp?.openTelegramLink("https://t.me/SmartSafe_Support");
   }}
   className="w-[64px] h-[64px] rounded-[24px] border border-[#39FF14]/25 bg-[#0B1220]/85 backdrop-blur-xl flex items-center justify-center shadow-[0_0_28px_rgba(57,255,20,.15)]"
 >
@@ -2523,7 +2523,10 @@ const authResult = await telegramAuth({
               return (
                 <button
                   key={item.key}
-                  onClick={() => setPage(item.key)}
+                  onClick={() => {
+  setPage(item.key);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}}
                   className={`rounded-[22px] py-3 transition-all duration-300 ${
                     active ? "bg-[#111827]" : "bg-transparent"
                   }`}
