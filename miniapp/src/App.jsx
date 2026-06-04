@@ -271,9 +271,8 @@ export default function App() {
 
 
   const partnerLink =
-    referralDashboard?.referral_link ||
-    `https://smartsafe.cc/?ref=${user?.referral_code || "demo"}`;
-
+  referralDashboard?.referral_link ||
+  `https://t.me/smart_safe_crypto_bot?startapp=${user?.referral_code || ""}`;
   const partnerStats = referralDashboard
     ? [
         {
@@ -391,6 +390,7 @@ const authResult = await telegramAuth({
   telegram_username: tgUser?.username || "roman",
   first_name: tgUser?.first_name || "Roman",
   last_name: tgUser?.last_name || "Smart",
+  referral_code: tgWebApp?.initDataUnsafe?.start_param || "",
 });
 
         if (!authResult.success) {

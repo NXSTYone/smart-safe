@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://api.smart-safe.online/api";
 
 export async function telegramAuth(payload) {
   const res = await fetch(`${API_URL}/auth/telegram`, {
