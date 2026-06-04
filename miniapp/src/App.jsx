@@ -1516,6 +1516,21 @@ const authResult = await telegramAuth({
                   <FaCopy />
                   {copied ? "ССЫЛКА СКОПИРОВАНА" : "КОПИРОВАТЬ ССЫЛКУ"}
                 </button>
+                <div className="mt-5 rounded-[22px] border border-[#7C3AED]/35 bg-[#7C3AED]/10 p-4">
+  <p className="neon-label-purple text-[12px]">
+    ВАШ ПРИГЛАСИТЕЛЬ
+  </p>
+  <p className="mt-2 text-[15px] font-black text-white">
+    {referralDashboard?.inviter
+      ? referralDashboard.inviter.display_name
+      : "Вы зарегистрированы без пригласителя"}
+  </p>
+  {referralDashboard?.inviter?.referral_code && (
+    <p className="mt-1 text-[12px] font-bold text-[#A7B3D6]">
+      Код: {referralDashboard.inviter.referral_code}
+    </p>
+  )}
+</div>
               </div>
             </div>
 
