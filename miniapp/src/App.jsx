@@ -2043,9 +2043,9 @@ const authResult = await telegramAuth({
       )}
 
       {balanceModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 px-5 backdrop-blur-md">
+        <div className="fixed inset-0 z-[100] overflow-y-auto bg-black/75 px-5 py-6 backdrop-blur-md">
           <div
-            className="relative w-full max-w-[430px] rounded-[30px] border bg-[#0B1220] p-6 shadow-[0_0_55px_rgba(0,229,255,.14)]"
+            className="relative mx-auto w-full max-w-[430px] rounded-[30px] border bg-[#0B1220] p-6 pb-32 shadow-[0_0_55px_rgba(0,229,255,.14)]"
             style={{ borderColor: `${balanceModal.color}55` }}
           >
             <button
