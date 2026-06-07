@@ -382,7 +382,7 @@ const targetUserId = targetUser.id;
        FROM balances
        WHERE user_id = $1
        FOR UPDATE`,
-      [taargetUserId]
+      [targetUserId]
     );
 
     if (balanceResult.rows.length === 0) {
