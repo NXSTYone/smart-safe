@@ -334,6 +334,14 @@ router.post('/users/:id/balance', auth, admin, async (req, res) => {
 
   try {
     const { id } = req.params;
+    const targetUser = await findUserByIdentifier(client, id);
+if (!targetUser) {
+  return res.status(404).json({
+    success: false,
+    message: 'Пользователь не найден',
+  });
+}
+const targetUserId = targetUser.id;
     const { balance_type, operation, amount, comment } = req.body;
 
     const field = BALANCE_FIELDS[balance_type];
@@ -374,7 +382,7 @@ router.post('/users/:id/balance', auth, admin, async (req, res) => {
        FROM balances
        WHERE user_id = $1
        FOR UPDATE`,
-      [id]
+      [taargetUserId]
     );
 
     if (balanceResult.rows.length === 0) {
@@ -410,7 +418,7 @@ router.post('/users/:id/balance', auth, admin, async (req, res) => {
            updated_at = NOW()
        WHERE user_id = $2
        RETURNING *`,
-      [newValue, id]
+      [newValue, targetUserId]
     );
 
     await client.query(
@@ -418,7 +426,7 @@ router.post('/users/:id/balance', auth, admin, async (req, res) => {
        (user_id, type, balance_type, amount, status, description, related_id)
        VALUES ($1, 'admin_balance_change', $2, $3, 'success', $4, NULL)`,
       [
-        id,
+        targetUserId,
         balance_type,
         operation === 'subtract' ? -value : value,
         `Ручное изменение баланса администратором: ${operation}, ${value} USDT. Причина: ${comment}`,
@@ -428,7 +436,7 @@ router.post('/users/:id/balance', auth, admin, async (req, res) => {
     await writeAdminLog(
       client,
       req.user.id,
-      id,
+      targetUserId,
       'balance_change',
       oldBalance,
       updatedBalanceResult.rows[0],
