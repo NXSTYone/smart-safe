@@ -96,7 +96,7 @@ router.post('/transfer-to-main', auth, async (req, res) => {
     if (!from_balance || !['working', 'referral'].includes(from_balance)) {
       return res.status(400).json({
         success: false,
-        message: 'Можно переводить только с working или referral баланса',
+        message: 'Можно переводить только с рабочего или реферального баланса',
       });
     }
 
@@ -149,6 +149,11 @@ router.post('/transfer-to-main', auth, async (req, res) => {
 
     const feeAmount = (transferAmount * feePercent) / 100;
     const finalAmount = transferAmount - feeAmount;
+    const balanceNames = {
+  working: 'рабочего',
+  referral: 'реферального',
+};
+const balanceName = balanceNames[from_balance] || from_balance;
 
     await client.query(
       `
@@ -173,7 +178,7 @@ router.post('/transfer-to-main', auth, async (req, res) => {
         'transfer_to_main',
         from_balance,
         transferAmount,
-        `Перевод с ${from_balance} баланса на основной. Комиссия: ${feeAmount} USDT`,
+        `Перевод с ${balanceName} баланса на основной. Комиссия: ${feeAmount} USDT`,
       ]
     );
 
