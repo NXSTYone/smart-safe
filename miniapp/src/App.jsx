@@ -1729,10 +1729,13 @@ const authResult = await telegramAuth({
       </div>
 
       {modal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 px-5 backdrop-blur-md">
+        <div className="fixed inset-0 z-[100] flex items-start justify-center bg-black/75 px-4 pb-24 pt-20 backdrop-blur-md">
           <div
-            className="relative w-full max-w-[430px] rounded-[30px] border bg-[#0B1220] p-6 shadow-[0_0_55px_rgba(0,229,255,.14)]"
-            style={{ borderColor: `${modal.color}55` }}
+            className="relative mx-auto max-h-[calc(100vh-120px)] w-full max-w-[430px] overflow-y-auto rounded-[30px] border bg-[#0B1220] p-5 pb-28 shadow-[0_0_55px_rgba(0,229,255,.14)]"
+            style={{
+  borderColor: `${modal.color}55`,
+  WebkitOverflowScrolling: "touch",
+}}
           >
             <button
               onClick={() => setModal(null)}
